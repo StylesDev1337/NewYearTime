@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跨年时间 --by CheungTszon. 作者QQ:282769539 WeChat:zza8848thjsj</title>
+    <link rel="stylesheet" href="./uiSettings.css">
+    <!-- CSS 样式 -->
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* 改变布局方向为垂直 */
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f8ff;
+        }
+
+        .time-display, #countdown {
+            font-size: 2em;
+            color: #4CAF50;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            letter-spacing: 2px;
+            user-select: none;
+            text-align: center;
+            margin-bottom: 20px; /* 增加底部外边距 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 当前时间显示 -->
+    <div class="time-display" id="currentTime" onclick="alert('作者QQ 2827695239 作者微信 zza8848thjsj')">加载中...</div>
+
+    <!-- 跨年倒计时显示 -->
+    <h1 id="countdown" onclick="alert('作者QQ 2827695239 作者微信 zza8848thjsj')">加载中...</h1>
+
+    <a href="./aboutDev.html" class="center delUnderline aniFont" target="_blank">时间可以点击！⌛️(包括我 [doge])</a>
+    <script>
+        // 目标时间：2026年1月1日午夜 (UTC+8)
+        const targetDate = new Date('2026-01-01T00:00:00+08:00').getTime();
+
+        function updateCurrentTime() {
+            const now = new Date();
+            const currentTimeString = now.toLocaleTimeString(); // 获取当前时间的字符串表示
+            document.getElementById('currentTime').textContent = `当前时间: ${currentTimeString}`;
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeRemaining = targetDate - now;
+
+            if (timeRemaining <= 0) {
+                document.getElementById('countdown').textContent = "Happy New Year!";
+                clearInterval(countdownIntervalId); // 停止定时器
+                return;
+            }
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            const formattedTime = `${days}天 ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            document.getElementById('countdown').textContent = `距离新年还有: ${formattedTime}`;
+        }
+
+        // 初始调用一次，确保页面加载时立即显示正确的时间和倒计时
+        updateCurrentTime();
+        updateCountdown();
+
+        // 每秒更新一次当前时间和跨年倒计时
+        const currentIntervalId = setInterval(updateCurrentTime, 1000);
+        const countdownIntervalId = setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>

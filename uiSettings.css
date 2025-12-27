@@ -1,0 +1,92 @@
+
+
+.countdown-container {
+    text-align: center;
+}
+.time-unit {
+    display: inline-block;
+    margin: 0 10px;
+}
+.time-number {
+    font-size: 3em;
+    font-weight: bold;
+    display: block;
+}
+.time-label {
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+/* 字体居中 */
+.center {
+    text-align: center;
+}
+/* 更改字体 */
+.font {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+/* 黑色 */
+.colorblk {
+    color: black;
+}
+/* 白色 */
+.colorwht {
+    color: white;
+}
+/* 字体加粗 */
+.fontBold {
+    font-weight: bold;
+}
+/* 字体取消加粗 */
+.delfontBold {
+    font-weight: normal;
+}
+/* 去除< a >标签下划线 */
+.delUnderline {
+    text-decoration: none;
+}
+/* 大字体 */
+.addFont{
+    font-size: 100px;
+}
+/* 动态字体 */
+.aniFont {
+    animation: colorChange 3s infinite
+}
+@keyframes colorChange {
+    0%{ color: #b25bff; }
+    25%{ color: rgb(255, 175, 81); }
+    50%{ color: #ff2525; }
+    75%{ color: #236aff; }
+    100%{ color: #b25bff; }
+}
+
+.lineHight2 {
+    line-height: 2;
+}
+
+.lineHight {
+    line-height: 5;
+}
+
+.button {
+    border-radius: 20px;
+    height: 50px;
+    width: 100px;
+}
+
+.back {
+    background-color: rgba(175, 175, 175, 0.26);
+    padding: 10px;
+    border-radius: 20px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.bgimage {
+    background-image: url("back.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
